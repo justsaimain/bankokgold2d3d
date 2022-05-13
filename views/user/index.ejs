@@ -14,29 +14,16 @@
     </div>
     <div class="content">
       <div class="datetime">
-        <svg
-          class="icon"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-          ></path>
-        </svg>
-        <span class="date"> 13/5/2022 </span>
-        <span class="time"> 18:55:30 </span>
+        <span class="date" id="last-update"></span>
       </div>
-
+      <p class="market-status">
+        Market Status: <span id="market-status"></span>
+      </p>
       <div class="top-content">
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
             <p class="card-label">Buy</p>
-            <p class="card-number">1.333</p>
+            <p class="card-number" id="buy-data">1.333</p>
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">3D</p>
@@ -46,7 +33,7 @@
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
             <p class="card-label">Sell</p>
-            <p class="card-number">2.392</p>
+            <p class="card-number" id="sell-data">2.392</p>
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">2D</p>
@@ -76,8 +63,39 @@
         </div>
       </div>
       <div class="result">
-          <button class="result-btn">View Result History</button>
+        <button class="result-btn">View Result History</button>
       </div>
     </div>
   </body>
+
+  <script>
+    function getLiveData() {
+      let xmlHttp = null;
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "/live", false);
+      xmlHttp.send(null);
+      let data = JSON.parse(xmlHttp.response).data;
+      document.getElementById("buy-data").innerText = data.set;
+      document.getElementById("sell-data").innerText = data.value;
+      document.getElementById("market-status").innerText = data.status;
+      document.getElementById("last-update").innerText =
+        data.last_update.replace(/(\r\n|\n|\r)/gm, "");
+
+      if (data.status !== "Closed") {
+        document.getElementById("buy-data").classList.add("blink_me");
+        document
+          .getElementById("market-status")
+          .classList.remove("market-status-closed");
+      } else {
+        document.getElementById("buy-data").classList.remove("blink_me");
+        document
+          .getElementById("market-status")
+          .classList.add("market-status-closed");
+      }
+    }
+
+    setInterval(() => {
+      getLiveData();
+    }, 5000);
+  </script>
 </html>

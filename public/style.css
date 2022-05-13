@@ -86,11 +86,10 @@ body {
   margin-top: 20px;
 }
 
-
-.round-time{
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: 500;
+.round-time {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .round-card {
@@ -99,11 +98,11 @@ body {
   align-items: center;
 }
 
-.round-result{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.round-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .round-title {
@@ -117,33 +116,51 @@ body {
 }
 
 .round-number {
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
 }
 
-.result{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.result {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.result-btn {
+  background: green;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
 
-.result-btn{
-    background: green;
-    padding: 15px 20px;
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+.market-status {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.market-status-closed {
+  color: red;
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+  -webkit-animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
