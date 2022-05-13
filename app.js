@@ -9,11 +9,12 @@ dotenv.config();
 const { scrapeData } = require("./controllers/admin/scrapeData");
 const cron = require("node-cron");
 
-//  0 0 2 * * * ( Every 2AM )
+cron.schedule("31 23 * * *", () => {
+  scrapeData();
+});
 
-cron.schedule("* * * * *", () => {
-  //   scrapeData();
-  console.log("running a task every minute");
+cron.schedule("30 4 * * *", () => {
+  scrapeData();
 });
 
 const adminRoutes = require("./routes/adminRoute");
