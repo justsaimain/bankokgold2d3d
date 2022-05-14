@@ -1,6 +1,6 @@
 module.exports.liveData = async (req, res) => {
   const seedrandom = require("seedrandom");
-  const interval = 60 * 5; // 30 is for every 30 second data change
+  const interval = 60 * 30; // 30 is for every 30 second data change
   const rng = seedrandom(Math.floor((new Date().getSeconds() / interval) * 60));
   const rng2 = seedrandom(
     Math.floor((new Date().getSeconds() / interval) * 60)
