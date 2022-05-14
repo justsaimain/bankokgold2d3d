@@ -1,39 +1,18 @@
 module.exports.liveData = async (req, res) => {
-  const axios = require("axios");
-  const cheerio = require("cheerio");
+  const seedrandom = require("seedrandom");
+  const interval = 60 * 5; // 30 is for every 30 second data change
+  const rng = seedrandom(Math.floor((new Date().getSeconds() / interval) * 60));
+  const rng2 = seedrandom(
+    Math.floor((new Date().getSeconds() / interval) * 60)
+  );
 
-  const url =
-    "https://classic.set.or.th/mkt/marketsummary.do?language=en&country=US";
+  const num_one = rng().toString().split(".")[1].substring(0, 3);
+  const num_two = rng2().toString().split(".")[1].slice(-3);
 
-  try {
-    const { data } = await axios.get(url);
-    const $ = cheerio.load(data);
-
-    const set = $(
-      "#maincontent > div > div:nth-child(3) > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2)"
-    ).text();
-
-    const value = $(
-      "#maincontent > div > div:nth-child(3) > div > div > table > tbody > tr:nth-child(1) > td:nth-child(8)"
-    ).text();
-
-    const last_update = $(
-      "#maincontent > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(2)"
-    ).text();
-
-    const status = $(
-      "#maincontent > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > span"
-    ).text();
-
-    const returnData = {
-      set,
-      value,
-      last_update,
-      status,
-    };
-
-    res.json({ data: returnData });
-  } catch (err) {
-    console.error(err);
-  }
+  res.json({
+    num_one: "1." + num_one,
+    num_two: "2." + num_two,
+    two_d: num_one.slice(-1) + num_two.slice(-1),
+    three_d: num_one,
+  });
 };

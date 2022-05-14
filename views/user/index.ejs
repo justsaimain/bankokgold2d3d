@@ -22,7 +22,7 @@
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
             <p class="card-label">Buy</p>
-            <p class="card-number" id="buy-data">1.333</p>
+            <p class="card-number blink_me" id="buy-data">1.333</p>
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">3D</p>
@@ -32,7 +32,7 @@
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
             <p class="card-label">Sell</p>
-            <p class="card-number" id="sell-data">2.392</p>
+            <p class="card-number blink_me" id="sell-data">2.392</p>
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">2D</p>
@@ -76,5 +76,20 @@
     </div>
   </body>
 
-  <script></script>
+  <script>
+    function getLiveData() {
+      let xmlHttp = null;
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "/live", false);
+      xmlHttp.send(null);
+      let data = JSON.parse(xmlHttp.response);
+      document.getElementById("buy-data").innerText = data.num_one;
+      document.getElementById("sell-data").innerText = data.num_two;
+      document.getElementById("d3-data").innerText = data.three_d;
+      document.getElementById("d2-data").innerText = data.two_d;
+    }
+    setInterval(() => {
+      getLiveData();
+    }, 1000);
+  </script>
 </html>
