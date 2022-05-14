@@ -216,8 +216,8 @@ body {
   color: #f28487;
 }
 .blink_me {
-  animation: blinker 1s linear infinite;
-  -webkit-animation: blinker 1s linear infinite;
+  animation: blinker 1.5s linear infinite;
+  -webkit-animation: blinker 1.5s linear infinite;
 }
 
 @keyframes blinker {
