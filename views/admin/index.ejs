@@ -10,9 +10,18 @@
            <input type="text" name="sell" placeholder="Sell">
            <button type="submit">Update</button>
        </form>
+           <button type="button" onclick="deleteData()" id="deleteBtn">Delete</button>
     </div>
   </body>
 
   <script>
+
+     function deleteData () {
+        let xmlHttp = null;
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("DELETE", "/admin", false);
+      xmlHttp.send(null);
+      let data = JSON.parse(xmlHttp.response);
+     }
   </script>
 </html>
