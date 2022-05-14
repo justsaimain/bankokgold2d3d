@@ -5,6 +5,8 @@ body {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   background: #f5f9fc;
+  max-width: 390px;
+  margin: auto;
 }
 
 .header {
