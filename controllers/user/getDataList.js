@@ -1,8 +1,8 @@
-const TwoD = require("../../models/TwoD");
+const Data = require("../../models/Data");
 
 module.exports.getDataList = async (req, res) => {
   try {
-    TwoD.find()
+    Data.find()
       .then((result) => {
         console.log(result);
         res.render("user/dataList", {
