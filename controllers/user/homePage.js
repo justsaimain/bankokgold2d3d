@@ -1,3 +1,6 @@
 module.exports.homePage = (req, res) => {
-  res.render("user/index");
+  const Data = require("../../models/Data");
+  Data.findOne({}, {}, { sort: { createdAt: -1 } }, (err, result) => {
+    res.render("user/index", { data: result });
+  });
 };

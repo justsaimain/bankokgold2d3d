@@ -18,7 +18,7 @@ module.exports.storeData = async (req, res) => {
       three_d: data.three_d,
       two_d: data.two_d,
       date: dd + "/" + mm + "/" + yyyy,
-      time: today.toLocaleTimeString(),
+      time: today.toLocaleTimeString([], { timeStyle: "short" }),
     });
 
     sData

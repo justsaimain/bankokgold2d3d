@@ -3,6 +3,7 @@
     <div class="header">
       <p>BKK <span>2D</span> <span>3D</span></p>
     </div>
+     
     <div class="content">
       <div class="datetime">
         <img src="schedule.png" style="width: 25px; height: 25px" alt="" />
@@ -32,23 +33,23 @@
         </div>
       </div>
       <div class="round">
-        <p class="round-time">Round 7:00 PM</p>
+        <p class="round-time">Round <%- data.time %></p>
         <div class="card round-card">
           <div class="round-result">
             <p class="round-title">Buy</p>
-            <p class="round-number">1.303</p>
+            <p class="round-number"><%- data.buy %></p>
           </div>
           <div class="round-result">
             <p class="round-title">Sell</p>
-            <p class="round-number">5.390</p>
+            <p class="round-number"><%- data.sell %></p>
           </div>
           <div class="round-result">
             <p class="round-title">3D</p>
-            <p class="round-number">933</p>
+            <p class="round-number"><%- data.three_d %></p>
           </div>
           <div class="round-result">
             <p class="round-title">2D</p>
-            <p class="round-number">20</p>
+            <p class="round-number"><%- data.two_d %></p>
           </div>
         </div>
       </div>
