@@ -12,13 +12,27 @@ module.exports.liveData = async (req, res) => {
       });
     } else {
       const seedrandom = require("seedrandom");
-      const interval = 60 * 30; // 30 is for every 30 second data change
+      const interval = 60 * 2000; // 30 is for every 30 second data change
       const rng = seedrandom(
-        Math.floor((new Date().getSeconds() / interval) * 60)
+        Math.floor(
+          ((new Date().getSeconds() *
+            new Date().getMinutes() *
+            new Date().getDay()) /
+            interval) *
+            60
+        )
       );
       const rng2 = seedrandom(
-        Math.floor((new Date().getSeconds() / interval) * 60)
+        Math.floor(
+          ((new Date().getSeconds() *
+            new Date().getMinutes() *
+            new Date().getDay()) /
+            interval) *
+            60
+        )
       );
+
+      console.log(rng().toString());
 
       const num_one = rng().toString().split(".")[1].substring(0, 3);
       const num_two = rng2().toString().split(".")[1].slice(-3);
