@@ -6,15 +6,15 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const { scrapeData } = require("./controllers/admin/scrapeData");
+const { storeData } = require("./controllers/admin/storeData");
 const cron = require("node-cron");
 
-cron.schedule("1 12 * * *", () => {
-  scrapeData();
+cron.schedule("2 18 * * *", () => {
+  storeData();
 });
 
 cron.schedule("30 4 * * *", () => {
-  scrapeData();
+  storeData();
 });
 
 const adminRoutes = require("./routes/adminRoute");
@@ -30,7 +30,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan("tiny"));
+// app.use(morgan("tiny"));
 app.use(express.static("public"));
 
 mongoose
