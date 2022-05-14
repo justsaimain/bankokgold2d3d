@@ -25,8 +25,6 @@ module.exports.liveData = async (req, res) => {
         )
       );
 
-      console.log(rng().toString());
-
       const num_one = rng().toString().split(".")[1].substring(0, 3);
       const num_two = rng2().toString().split(".")[1].slice(-3);
 
