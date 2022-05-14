@@ -15,8 +15,8 @@
     <div class="content">
       <div class="datetime">
         <img src="schedule.png" style="width: 25px; height: 25px" alt="" />
-        <span class="date" id="last-update">14/05/2022</span>
-        <span class="time" id="">11:00:35</span>
+        <span class="date" id="date">14/05/2022</span>
+        <span class="time" id="time">11:00:35</span>
       </div>
       <div class="top-content">
         <div class="buy-sell">
@@ -78,6 +78,13 @@
 
   <script>
     function getLiveData() {
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, "0");
+      const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      const yyyy = today.getFullYear();
+      document.getElementById("date").innerText = dd + "/" + mm + "/" + yyyy;
+      document.getElementById("time").innerText = today.toLocaleTimeString();
+
       let xmlHttp = null;
       xmlHttp = new XMLHttpRequest();
       xmlHttp.open("GET", "/live", false);
