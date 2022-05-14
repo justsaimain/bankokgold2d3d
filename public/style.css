@@ -4,19 +4,30 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  background: #ecf9ff;
+  background: #f5f9fc;
 }
 
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .header p {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
+  color: #f28487;
+  letter-spacing: 0.5px;
+}
+
+.header p span:nth-child(1) {
+  color: #499ce4;
+  font-size: 25px;
+}
+
+.header p span:nth-child(2) {
+  color: #e8ab59;
+  font-size: 25px;
 }
 
 .icon {
@@ -36,15 +47,17 @@ body {
 
 .datetime .date {
   font-size: 16px;
-  color: red;
-  margin-right: 10px;
+  color: #f28487;
+  font-weight: bold;
+  margin-right: 5px;
   margin-left: 5px;
   letter-spacing: 0.5px;
 }
 
 .datetime .time {
   font-size: 16px;
-  color: blue;
+  font-weight: 500;
+  color: #499ce4;
   letter-spacing: 0.5px;
 }
 
@@ -67,6 +80,7 @@ body {
   margin: 0;
   padding: 0;
   margin-bottom: 8px;
+  color: #9f9f9f;
 }
 
 .card-number {
@@ -75,7 +89,7 @@ body {
   font-size: 30px;
   font-weight: 500;
   letter-spacing: 1px;
-  color: green;
+  color: #67d178;
 }
 
 .buy-sell {
@@ -84,11 +98,29 @@ body {
   align-items: center;
   margin-bottom: 20px;
   margin-top: 20px;
+  color: #67d178;
 }
 
+#buy-data {
+  color: #67d178;
+}
+
+#sell-data {
+  color: #f28487;
+}
+
+#d3-data {
+  color: #499ce4;
+}
+
+#d2-data {
+  color: #e8ab59;
+}
 .round-time {
   margin-top: 30px;
-  font-size: 18px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #499ce4;
   font-weight: 500;
 }
 
@@ -113,6 +145,7 @@ body {
   margin: 0;
   padding: 0;
   margin-bottom: 18px;
+  color: #9f9f9f;
 }
 
 .round-number {
@@ -124,26 +157,54 @@ body {
   margin-bottom: 8px;
 }
 
-.result {
+.actions {
+  border-top: 1px solid #e7e7e7;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result,
+.server {
   margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.result-btn {
-  background: green;
+.result {
+  margin-right: 10px;
+}
+
+.server {
+  margin-left: 10px;
+}
+
+.result-btn,
+.server-btn {
+  background: #fff;
   padding: 15px 20px;
-  color: #fff;
+  color: #9f9f9f;
   font-size: 16px;
   border: none;
   outline: none;
   box-shadow: none;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+
+.result-btn img,
+.server-btn img {
+  margin-right: 20px;
+  width: 25px;
 }
 
 .market-status {
@@ -152,7 +213,7 @@ body {
 }
 
 .market-status-closed {
-  color: red;
+  color: #f28487;
 }
 .blink_me {
   animation: blinker 1s linear infinite;
@@ -163,4 +224,20 @@ body {
   50% {
     opacity: 0;
   }
+}
+
+.round-card .round-result:nth-child(1) .round-number {
+  color: #67d178;
+}
+
+.round-card .round-result:nth-child(2) .round-number {
+  color: #f28487;
+}
+
+.round-card .round-result:nth-child(3) .round-number {
+  color: #499ce4;
+}
+
+.round-card .round-result:nth-child(4) .round-number {
+  color: #e8ab59;
 }

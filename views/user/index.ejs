@@ -4,21 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gold 2D 3D</title>
+    <title>BKK 2D 3D</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="header">
-      <p>Gold 2D 3D</p>
+      <p>BKK <span>2D</span> <span>3D</span></p>
     </div>
     <div class="content">
       <div class="datetime">
-        <span class="date" id="last-update"></span>
+        <img src="schedule.png" style="width: 25px; height: 25px" alt="" />
+        <span class="date" id="last-update">14/05/2022</span>
+        <span class="time" id="">11:00:35</span>
       </div>
-      <p class="market-status">
-        Market Status: <span id="market-status"></span>
-      </p>
       <div class="top-content">
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
@@ -27,7 +26,7 @@
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">3D</p>
-            <p class="card-number">293</p>
+            <p class="card-number" id="d3-data">293</p>
           </div>
         </div>
         <div class="buy-sell">
@@ -37,7 +36,7 @@
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">2D</p>
-            <p class="card-number">22</p>
+            <p class="card-number" id="d2-data">22</p>
           </div>
         </div>
       </div>
@@ -62,40 +61,20 @@
           </div>
         </div>
       </div>
-      <div class="result">
-        <button class="result-btn">View Result History</button>
+      <div class="actions">
+        <div class="result">
+          <button class="result-btn">
+            <img src="bar-chart.png" alt="" /> Results
+          </button>
+        </div>
+        <div class="server">
+          <button class="server-btn">
+            <img src="server.png" alt="" /> Server Busy
+          </button>
+        </div>
       </div>
     </div>
   </body>
 
-  <script>
-    function getLiveData() {
-      let xmlHttp = null;
-      xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("GET", "/live", false);
-      xmlHttp.send(null);
-      let data = JSON.parse(xmlHttp.response).data;
-      document.getElementById("buy-data").innerText = data.set;
-      document.getElementById("sell-data").innerText = data.value;
-      document.getElementById("market-status").innerText = data.status;
-      document.getElementById("last-update").innerText =
-        data.last_update.replace(/(\r\n|\n|\r)/gm, "");
-
-      if (data.status !== "Closed") {
-        document.getElementById("buy-data").classList.add("blink_me");
-        document
-          .getElementById("market-status")
-          .classList.remove("market-status-closed");
-      } else {
-        document.getElementById("buy-data").classList.remove("blink_me");
-        document
-          .getElementById("market-status")
-          .classList.add("market-status-closed");
-      }
-    }
-
-    setInterval(() => {
-      getLiveData();
-    }, 5000);
-  </script>
+  <script></script>
 </html>

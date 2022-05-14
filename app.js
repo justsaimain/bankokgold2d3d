@@ -9,7 +9,7 @@ dotenv.config();
 const { scrapeData } = require("./controllers/admin/scrapeData");
 const cron = require("node-cron");
 
-cron.schedule("31 23 * * *", () => {
+cron.schedule("1 12 * * *", () => {
   scrapeData();
 });
 
