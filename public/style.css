@@ -243,3 +243,42 @@ body {
 .round-card .round-result:nth-child(4) .round-number {
   color: #e8ab59;
 }
+
+/* panel admin */
+
+.panel-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9f9f9f;
+}
+
+.panel-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-form input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #9f9f9f;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.panel-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #f28487;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}

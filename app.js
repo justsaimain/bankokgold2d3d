@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+
 dotenv.config();
 
 const { storeData } = require("./controllers/admin/storeData");
@@ -51,7 +52,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(morgan("tiny"));
-app.use(express.static("public"));
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -61,7 +61,7 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-app.use("/admin", adminRoutes);
+app.use("/panel", adminRoutes);
 app.use("/", userRoutes);
 
 app.use((req, res) => {
