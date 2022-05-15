@@ -299,8 +299,14 @@ body {
   -o-border-radius: 5px;
 }
 
-.page-not-found {
+.page-not-found,
+.no-result-history {
   font-size: 25px;
   color: #f28487;
   text-align: center;
+}
+
+.no-result-history {
+  font-size: 18px;
+  text-decoration: underline;
 }
