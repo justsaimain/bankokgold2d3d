@@ -16,6 +16,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
+const Option = require("../models/Option");
 const jwtKey = process.env.TOKEN_SECRET;
 const jwtExpirySeconds = 300; // second
 
@@ -48,12 +49,15 @@ router.post("/login", (req, res) => {
             localStorage.setItem("token", token);
             res.redirect("/panel");
           } else {
+            localStorage.removeItem("token");
             res.redirect("/panel/login");
           }
         } else {
+          localStorage.removeItem("token");
           res.redirect("/panel/login");
         }
       } else {
+        localStorage.removeItem("token");
         res.redirect("/panel/login");
       }
     }
@@ -74,19 +78,12 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-  res.send("<p>admi page</p>");
+  Option.find({}, {}, {}, (err, result) => {
+    res.render("admin/index", { data: result });
+  });
 });
 router.post("/", updateData);
-router.delete("/", deleteData);
+router.post("/delete", deleteData);
 router.get("/store", storeData);
-router.get("/token", (req, res) => {
-  function generateAccessToken(username) {
-    return jwt.sign(username, process.env.TOKEN_SECRET, {
-      expiresIn: "1800s",
-    });
-  }
-  const token = generateAccessToken({ username: "admin" });
-  res.json(token);
-});
 
 module.exports = router;

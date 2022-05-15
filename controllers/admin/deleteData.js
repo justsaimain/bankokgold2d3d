@@ -3,5 +3,6 @@ module.exports.deleteData = async (req, res) => {
 
   Option.deleteMany({}).then(() => {
     console.log("Delete Success");
+    res.redirect("/panel");
   });
 };

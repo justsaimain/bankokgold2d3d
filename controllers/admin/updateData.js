@@ -10,7 +10,7 @@ module.exports.updateData = async (req, res) => {
   Option.findOneAndUpdate(query, update, options, function (error, result) {
     if (error) return;
 
-    res.redirect("/admin");
+    res.redirect("/panel");
     // do something with the document
   });
 };

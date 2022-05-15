@@ -282,3 +282,19 @@ body {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
+
+.delete-btn {
+  width: 100px;
+  padding: 10px;
+  background-color: #f28487;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
