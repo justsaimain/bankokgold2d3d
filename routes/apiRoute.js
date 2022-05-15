@@ -2,7 +2,7 @@ const { Router } = require("express");
 const express = require("express");
 
 const { liveData } = require("../controllers/user/liveData");
-const { resultData } = require("../controllers/user/ResultData");
+const { resultData } = require("../controllers/user/resultData");
 
 const router = Router();
 router.use(express.static("public"));
