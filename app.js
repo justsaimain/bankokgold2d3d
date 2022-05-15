@@ -40,6 +40,7 @@ cron.schedule("0 22 * * *", () => {
 
 const adminRoutes = require("./routes/adminRoute");
 const userRoutes = require("./routes/userRoute");
+const apiRoutes = require("./routes/apiRoute");
 
 const dbURI = process.env.DB_URI;
 
@@ -62,8 +63,9 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/panel", adminRoutes);
+app.use("/api", apiRoutes);
 app.use("/", userRoutes);
 
 app.use((req, res) => {
-  res.status(404).render("404.ejs");
+  res.redirect("/");
 });
