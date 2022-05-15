@@ -1,4 +1,5 @@
 const Data = require("../../models/Data");
+const fs = require("fs");
 
 module.exports.storeData = async (req, res) => {
   const axios = require("axios");
@@ -21,15 +22,28 @@ module.exports.storeData = async (req, res) => {
       time: today.toLocaleTimeString([], { timeStyle: "short" }),
     });
 
+    var elogger = fs.createWriteStream(process.cwd() + "/logs/error.txt", {
+      flags: "a", // 'a' means appending (old data will be preserved)
+    });
+
+    // var slogger = fs.createWriteStream(process.cwd() + "/logs/success.txt", {
+    //   flags: "a", // 'a' means appending (old data will be preserved)
+    // });
+
+    var eWriteLine = (line) => elogger.write(`\n${line}`);
+    // var sWriteLine = (line) => slogger.write(`\n${line}`);
+
     sData
       .save()
       .then((result) => {
-        console.log(result);
+        // console.log(result);
+        // sWriteLine("Store new data : id - " + result._id);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
+        eWriteLine(error);
       });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
   }
 };

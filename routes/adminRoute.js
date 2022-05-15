@@ -45,7 +45,6 @@ router.post("/login", (req, res) => {
               algorithm: "HS256",
               expiresIn: jwtExpirySeconds,
             });
-            console.log("token:", token);
             localStorage.setItem("token", token);
             res.redirect("/panel");
           } else {
@@ -62,7 +61,6 @@ router.post("/login", (req, res) => {
 });
 
 router.use((req, res, next) => {
-  console.log(localStorage.getItem("token"));
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -70,10 +68,7 @@ router.use((req, res, next) => {
   }
 
   jwt.verify(token, jwtKey, (err, user) => {
-    console.log(err);
-
     if (err) return res.sendStatus(403);
-
     next();
   });
 });
