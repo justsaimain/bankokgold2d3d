@@ -81,7 +81,7 @@
 
       let xmlHttp = null;
       xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("GET", "/live", false);
+      xmlHttp.open("GET", "/api/live", false);
       xmlHttp.send(null);
       let data = JSON.parse(xmlHttp.response);
       document.getElementById("buy-data").innerText = data.num_one;
