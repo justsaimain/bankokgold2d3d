@@ -14,11 +14,15 @@ cron.schedule("0 8 * * *", () => {
   storeData();
 });
 
-cron.schedule("10 9 * * *", () => {
+cron.schedule("14 9 * * *", () => {
   storeData();
 });
 
-cron.schedule("11 9 * * *", () => {
+cron.schedule("15 9 * * *", () => {
+  storeData();
+});
+
+cron.schedule("13 9 * * *", () => {
   storeData();
 });
 
