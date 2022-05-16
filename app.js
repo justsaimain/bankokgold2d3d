@@ -14,15 +14,7 @@ cron.schedule("0 8 * * *", () => {
   storeData();
 });
 
-cron.schedule("21 9 * * *", () => {
-  storeData();
-});
-
-cron.schedule("22 9 * * *", () => {
-  storeData();
-});
-
-cron.schedule("23 9 * * *", () => {
+cron.schedule("30 9 * * *", () => {
   storeData();
 });
 
