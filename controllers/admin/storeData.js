@@ -12,7 +12,7 @@ module.exports.storeData = async (req, res) => {
     const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
     const yyyy = today.getFullYear();
 
-    const data = await axios.get(process.env.BASE_URL + "/api/live");
+    const data = axios.get(process.env.BASE_URL + "/api/live");
 
     console.log("data", data);
     console.log("data sep", data.data.num_one);
