@@ -12,7 +12,9 @@ module.exports.storeData = async (req, res) => {
     const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
     const yyyy = today.getFullYear();
 
-    const { data } = await axios.get(process.env.BASE_URL + "/api/live");
+    const data = await axios.get(process.env.BASE_URL + "/api/live");
+
+    console.log(data);
     const sData = new Data({
       buy: data.num_one,
       sell: data.num_two,
