@@ -5,30 +5,30 @@ const dataSchema = new Schema(
   {
     buy: {
       type: String,
-      required: false,
+      required: true,
     },
     sell: {
       type: String,
-      required: false,
+      required: true,
     },
     two_d: {
       type: String,
-      required: false,
+      required: true,
     },
     three_d: {
       type: String,
-      required: false,
+      required: true,
     },
     date: {
       type: String,
-      required: false,
+      required: true,
     },
     time: {
       type: String,
-      required: false,
+      required: true,
     },
   },
-  { timestamps: false }
+  { timestamps: true }
 );
 
 const Data = mongoose.model("Data", dataSchema);
