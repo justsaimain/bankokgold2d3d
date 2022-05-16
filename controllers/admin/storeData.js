@@ -14,12 +14,13 @@ module.exports.storeData = async (req, res) => {
 
     const data = await axios.get(process.env.BASE_URL + "/api/live");
 
-    console.log(data);
+    console.log("data", data);
+    console.log("data sep", data.data.num_one);
     const sData = new Data({
-      buy: data.num_one,
-      sell: data.num_two,
-      three_d: data.three_d,
-      two_d: data.two_d,
+      buy: data.data.num_one,
+      sell: data.data.num_two,
+      three_d: data.data.three_d,
+      two_d: data.data.two_d,
       date: dd + "/" + mm + "/" + yyyy,
       time: today.toLocaleTimeString([], { timeStyle: "short" }),
     });
@@ -38,14 +39,14 @@ module.exports.storeData = async (req, res) => {
     sData
       .save()
       .then((result) => {
-        // console.log(result);
+        console.log("saved", result);
         // sWriteLine("Store new data : id - " + result._id);
       })
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
         eWriteLine(error);
       });
   } catch (err) {
-    // console.error(err);
+    console.error(err);
   }
 };
