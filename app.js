@@ -14,10 +14,6 @@ cron.schedule("0 8 * * *", () => {
   storeData();
 });
 
-cron.schedule("30 9 * * *", () => {
-  storeData();
-});
-
 cron.schedule("0 10 * * *", () => {
   storeData();
 });
