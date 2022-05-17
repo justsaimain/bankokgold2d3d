@@ -5,6 +5,9 @@
     </div>
      
     <div class="content">
+      <% if(marquee){ %> 
+      <marquee class="marquee-text"><%= marquee %> </marquee>
+      <% } %> 
       <div class="datetime">
         <img src="schedule.png" style="width: 25px; height: 25px" alt="" />
         <span class="date" id="date">--/--/----</span>

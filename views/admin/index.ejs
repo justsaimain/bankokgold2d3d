@@ -18,9 +18,14 @@
        </form>
         <% if(data.length > 0){ %> 
           <form action="/panel/delete" method="post">
-            <button type="submit" class="delete-btn" onclick="deleteData()" id="deleteBtn">Delete</button>
+            <button type="submit" class="delete-btn" id="deleteBtn">Delete</button>
           </form>
       <% } %> 
+
+      <form class="marquee-form" action="/panel/marquee" method="post" style="margin-top:50px">
+           <input type="text" name="marquee_text" placeholder="Alert Text" style="display: block">
+            <button type="submit" class="marquee-btn" id="">Update Marquee</button>
+      </form>
     </div>
   </body>
 

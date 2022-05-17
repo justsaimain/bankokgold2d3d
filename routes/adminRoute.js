@@ -17,6 +17,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 const Option = require("../models/Option");
+const { updateMarquee } = require("../controllers/admin/updateMarquee");
 const jwtKey = process.env.TOKEN_SECRET;
 const jwtExpirySeconds = 300; // second
 
@@ -83,6 +84,7 @@ router.get("/", (req, res) => {
   });
 });
 router.post("/", updateData);
+router.post("/marquee", updateMarquee);
 router.post("/delete", deleteData);
 router.get("/store", storeData);
 

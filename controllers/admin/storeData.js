@@ -16,8 +16,6 @@ module.exports.storeData = async (req, res) => {
 
     const data = await axios.get(process.env.BASE_URL + "/api/live");
 
-    console.log("data", data);
-    console.log("data sep", data.data.num_one);
     const sData = new Data({
       buy: data.data.num_one,
       sell: data.data.num_two,

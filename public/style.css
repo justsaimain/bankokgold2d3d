@@ -257,7 +257,8 @@ body {
   flex-direction: column;
 }
 
-.panel-form input {
+.panel-form input,
+.marquee-form input {
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #9f9f9f;
@@ -267,7 +268,9 @@ body {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-
+.marquee-form input {
+  width: 330px;
+}
 .panel-form button {
   width: 100px;
   padding: 10px;
@@ -299,6 +302,21 @@ body {
   -o-border-radius: 5px;
 }
 
+.marquee-btn {
+  padding: 10px;
+  background-color: #f28487;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
 .page-not-found,
 .no-result-history {
   font-size: 25px;
@@ -309,4 +327,16 @@ body {
 .no-result-history {
   font-size: 18px;
   text-decoration: underline;
+}
+
+.marquee-text {
+  border-radius: 2px;
+  background: #f28487;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
