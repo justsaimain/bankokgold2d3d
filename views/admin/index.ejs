@@ -26,6 +26,12 @@
            <input type="text" name="marquee_text" placeholder="Alert Text" style="display: block">
             <button type="submit" class="marquee-btn" id="">Update Marquee</button>
       </form>
+
+       <% if(marquee.length > 0){ %> 
+          <form action="/panel/marquee/delete" method="post">
+            <button type="submit" class="marquee-btn" >Delete Marquee</button>
+          </form>
+      <% } %> 
     </div>
   </body>
 

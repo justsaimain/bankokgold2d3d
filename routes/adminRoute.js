@@ -18,6 +18,8 @@ const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 const Option = require("../models/Option");
 const { updateMarquee } = require("../controllers/admin/updateMarquee");
+const { deleteMarquee } = require("../controllers/admin/deleteMarquee");
+const Marquee = require("../models/Marquee");
 const jwtKey = process.env.TOKEN_SECRET;
 const jwtExpirySeconds = 300; // second
 
@@ -78,13 +80,16 @@ router.use((req, res, next) => {
   });
 });
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+  const marquee = await Marquee.find();
+
   Option.find({}, {}, {}, (err, result) => {
-    res.render("admin/index", { data: result });
+    res.render("admin/index", { data: result, marquee: marquee });
   });
 });
 router.post("/", updateData);
 router.post("/marquee", updateMarquee);
+router.post("/marquee/delete", deleteMarquee);
 router.post("/delete", deleteData);
 router.get("/store", storeData);
 
