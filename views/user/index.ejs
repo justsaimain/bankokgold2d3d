@@ -7,54 +7,52 @@
     <div class="content">
       <div class="datetime">
         <img src="schedule.png" style="width: 25px; height: 25px" alt="" />
-        <span class="date" id="date">14/05/2022</span>
-        <span class="time" id="time">11:00:35</span>
+        <span class="date" id="date">--/--/----</span>
+        <span class="time" id="time">00:00:00</span>
       </div>
       <div class="top-content">
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
             <p class="card-label">Buy</p>
-            <p class="card-number blink_me" id="buy-data">1.333</p>
+            <p class="card-number blink_me" id="buy-data">----</p>
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">3D</p>
-            <p class="card-number" id="d3-data">293</p>
+            <p class="card-number" id="d3-data">---</p>
           </div>
         </div>
         <div class="buy-sell">
           <div class="card" style="flex-grow: 1; margin-right: 10px">
             <p class="card-label">Sell</p>
-            <p class="card-number blink_me" id="sell-data">2.392</p>
+            <p class="card-number blink_me" id="sell-data">----</p>
           </div>
           <div class="card" style="flex-grow: 1; margin-left: 10px">
             <p class="card-label">2D</p>
-            <p class="card-number" id="d2-data">22</p>
+            <p class="card-number" id="d2-data">--</p>
           </div>
         </div>
       </div>
-      <% if(data){ %> 
       <div class="round">
-        <p class="round-time">Round <%- data.time %></p>
+        <p class="round-time" id="round-time"></p>
         <div class="card round-card">
           <div class="round-result">
             <p class="round-title">Buy</p>
-            <p class="round-number"><%- data.buy %></p>
+            <p class="round-number" id="round-buy"></p>
           </div>
           <div class="round-result">
             <p class="round-title">Sell</p>
-            <p class="round-number"><%- data.sell %></p>
+            <p class="round-number" id="round-sell"></p>
           </div>
           <div class="round-result">
             <p class="round-title">3D</p>
-            <p class="round-number"><%- data.three_d %></p>
+            <p class="round-number" id="round-threed"></p>
           </div>
           <div class="round-result">
             <p class="round-title">2D</p>
-            <p class="round-number"><%- data.two_d %></p>
+            <p class="round-number" id="round-twod"></p>
           </div>
         </div>
       </div>
-      <% } %> 
       <div class="actions">
         <div class="result">
           <button class="result-btn" onclick="location.href='/results'">
@@ -89,8 +87,25 @@
       document.getElementById("d3-data").innerText = data.three_d;
       document.getElementById("d2-data").innerText = data.two_d;
     }
+    
+
+     function getRoundData() {
+      let xmlHttp = null;
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "/api/results", false);
+      xmlHttp.send(null);
+      let data = JSON.parse(xmlHttp.response).data;
+      document.getElementById("round-time").innerText = "Round " + data[0].time;
+      document.getElementById("round-buy").innerText = data[0].buy;
+      document.getElementById("round-sell").innerText = data[0].sell;
+      document.getElementById("round-threed").innerText = data[0].three_d;
+      document.getElementById("round-twod").innerText = data[0].two_d;
+    }
+
+
     setInterval(() => {
       getLiveData();
+      getRoundData();
     }, 1000);
   </script>
 </html>
