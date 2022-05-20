@@ -19,6 +19,7 @@ module.exports.liveData = async (req, res) => {
   let rData = {};
   Option.find()
     .then((result) => {
+      console.log("opt", result);
       if (result.length > 0) {
         const data = result[0];
         if (
@@ -53,7 +54,6 @@ module.exports.liveData = async (req, res) => {
           three_d: num_one,
         };
       }
-
       res.json(rData);
     })
     .catch((err) => {
