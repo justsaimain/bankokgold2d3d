@@ -45,6 +45,13 @@ module.exports.liveData = async (req, res) => {
             .catch((err) => {
               console.log(err);
             });
+        } else {
+          rData = {
+            num_one: "1." + num_one,
+            num_two: "2." + num_two,
+            two_d: num_one.slice(-1) + num_two.slice(-1),
+            three_d: num_one,
+          };
         }
       } else {
         rData = {
