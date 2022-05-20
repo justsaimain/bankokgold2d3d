@@ -83,17 +83,9 @@ module.exports.updateData = async (req, res) => {
     console.log("🚨 load static data for 8PM before 1 minutes : 7:59 PM");
   }
 
-  showDateTime = moment(new Date())
-    .add(30, "seconds")
+  const deleteDateTime = moment(new Date(showDateTime))
+    .add(3, "minutes")
     .format("MMMM D YYYY, H:mm:ss");
-
-  const deleteDateTime = moment(new Date())
-    .add(1, "minutes")
-    .format("MMMM D YYYY, H:mm:ss");
-
-  // const deleteDateTime = moment(new Date(showDateTime))
-  //   .add(3, "minutes")
-  //   .format("MMMM D YYYY, H:mm:ss");
 
   console.log("show date time", showDateTime);
   console.log("delete date time", deleteDateTime);
