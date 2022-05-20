@@ -10,31 +10,44 @@ dotenv.config();
 const { storeData } = require("./controllers/admin/storeData");
 const cron = require("node-cron");
 
+// 8 AM
 cron.schedule("0 8 * * *", () => {
   storeData();
 });
 
+// 10 AM
 cron.schedule("0 10 * * *", () => {
   storeData();
 });
 
+// 12 PM
 cron.schedule("0 12 * * *", () => {
   storeData();
 });
 
+// 2 PM
 cron.schedule("0 14 * * *", () => {
   storeData();
 });
 
+// 4 PM
 cron.schedule("0 16 * * *", () => {
   storeData();
 });
 
+// 7 PM
 cron.schedule("0 19 * * *", () => {
   storeData();
 });
 
+// 10 PM
 cron.schedule("0 22 * * *", () => {
+  storeData();
+});
+
+// Test
+
+cron.schedule("25 2 * * *", () => {
   storeData();
 });
 

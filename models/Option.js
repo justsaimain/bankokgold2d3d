@@ -11,10 +11,13 @@ const optionSchema = new Schema(
       type: String,
       required: true,
     },
-    active: {
-      type: Boolean,
-      default: true,
-      required: false,
+    showDateTime: {
+      type: String,
+      required: true,
+    },
+    deleteDateTime: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }

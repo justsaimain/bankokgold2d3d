@@ -98,13 +98,14 @@
       xmlHttp.open("GET", "/api/results", false);
       xmlHttp.send(null);
       let data = JSON.parse(xmlHttp.response).data;
-      document.getElementById("round-time").innerText = "Round " + data[0].time;
-      document.getElementById("round-buy").innerText = data[0].buy;
-      document.getElementById("round-sell").innerText = data[0].sell;
-      document.getElementById("round-threed").innerText = data[0].three_d;
-      document.getElementById("round-twod").innerText = data[0].two_d;
+      if(data.length > 0){
+        document.getElementById("round-time").innerText = "Round " + data[0]?.time;
+        document.getElementById("round-buy").innerText = data[0]?.buy;
+        document.getElementById("round-sell").innerText = data[0]?.sell;
+        document.getElementById("round-threed").innerText = data[0]?.three_d;
+        document.getElementById("round-twod").innerText = data[0]?.two_d;
+      }
     }
-
 
     setInterval(() => {
       getLiveData();
