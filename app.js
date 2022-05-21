@@ -45,12 +45,6 @@ cron.schedule("0 22 * * *", () => {
   storeData();
 });
 
-// Test
-
-cron.schedule("25 2 * * *", () => {
-  storeData();
-});
-
 const adminRoutes = require("./routes/adminRoute");
 const userRoutes = require("./routes/userRoute");
 const apiRoutes = require("./routes/apiRoute");
