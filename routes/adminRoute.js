@@ -6,6 +6,11 @@ const localStorage = require("localStorage");
 const { deleteData } = require("../controllers/admin/deleteData");
 const { storeData } = require("../controllers/admin/storeData");
 const { updateData } = require("../controllers/admin/updateData");
+const {
+  getHistory,
+  getHistoryEdit,
+  postHistoryEdit,
+} = require("../controllers/admin/history");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -88,6 +93,10 @@ router.get("/", async (req, res) => {
   });
 });
 router.post("/", updateData);
+router.get("/history", getHistory);
+router.get("/history/:id", getHistoryEdit);
+router.post("/history/:id", postHistoryEdit);
+
 router.post("/marquee", updateMarquee);
 router.post("/marquee/delete", deleteMarquee);
 router.post("/delete", deleteData);
