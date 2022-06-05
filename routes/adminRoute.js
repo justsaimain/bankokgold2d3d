@@ -93,9 +93,9 @@ router.get("/", async (req, res) => {
   });
 });
 router.post("/", updateData);
-router.get("/history", getHistory);
-router.get("/history/:id", getHistoryEdit);
-router.post("/history/:id", postHistoryEdit);
+router.get("/his-rec", getHistory);
+router.get("/his-rec/:id", getHistoryEdit);
+router.post("/his-rec/:id", postHistoryEdit);
 
 router.post("/marquee", updateMarquee);
 router.post("/marquee/delete", deleteMarquee);
